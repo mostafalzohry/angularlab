@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
+  imageurl = 'assets/woman.jpg'
   constructor() { }
 
   ngOnInit(): void {
