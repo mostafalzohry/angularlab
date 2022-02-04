@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DiscountOffers } from '../shared-classes-and-types/enum.discountoffers';
 import { ICategory } from '../shared-classes-and-types/interface.icategory';
 import { IProduct } from '../shared-classes-and-types/interface.iproduct'
+import { ProductService } from '../Services/product-service.service';
 
 @Component({
   selector: 'app-products',
@@ -17,8 +18,10 @@ export class ProductsComponent implements OnInit {
   CategoryList:ICategory[]
   clientName:string
    IsPurshased:Boolean
+   showTable: boolean = false;
 
-  //  CategoryList:string
+
+ 
 
   toggle(): void {
     this.IsPurshased = !this.IsPurshased;
@@ -26,7 +29,7 @@ export class ProductsComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor(private productService: ProductService) {
     this.discount = DiscountOffers.tenpercentage
     this.storeName = 'poco'
     this.storeLogo = 'poco'
@@ -64,7 +67,7 @@ export class ProductsComponent implements OnInit {
     }];
 
 
-    // this.CategoryList = {"Fashion":String,"Electornics":String,"Furniture":String}
+    
     this.CategoryList = [{
       ID:1,
       Name:"Fashion"
@@ -82,6 +85,10 @@ export class ProductsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+    renderValues() {
+    this.ProductList = this.productService.GetAllProducts();
+    console.log("render values")
   }
 
 }
