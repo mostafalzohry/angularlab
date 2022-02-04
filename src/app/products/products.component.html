@@ -22,19 +22,94 @@
 <!-- <h3>We offer an explicit discount of: {{ discount }}</h3> -->
 <!-- <img [src]="ProductList[0].img" class="card-img-top" width="250rem" height="250rem" />
 <p class="card-text">We offer an explicit discount of: {{ discount }}</p> -->
-
-<div class="card-group">
+<div *ngFor="let item in CategoryList" ></div>
+<select name="categoryList" id="categoryList">
+    <option value="" disabled selected>Select a category</option>
+    <option value="">{{CategoryList[0].Name}}</option>
+    <option value="">{{CategoryList[1].Name}}</option>
+    <option value="">{{CategoryList[2].Name}}</option>
+</select>
+<br>
+<!-- <div class="card-group">
 <div class="card" >
   <img [src]="ProductList[0].img" class="card-img-top" width="250rem" height="250rem" />
   <div class="card-body">
-    <h1 class="card-title" >{{ storeName }}</h1>
-    <h3 class="card-text">We offer an explicit discount of: {{ discount }}</h3>
-    <button href="#" class="btn btn-info">add to cart</button>
-  </div>
-</div>
+    <h1 class="card-title" >{{ storeName }}</h1> -->
+
+    <!-- <h3 class="card-text" *ngIf = "discount == 'No Discount' ; then thenBlock;else elseBlock ">
+      We offer an explicit discount of: {{ discount }}</h3>
+      <h3 #thenBlock></h3> -->
+
+<div *ngIf="discount == 'No Discount' ; then nodiscount;else displaydiscount"></div>
+
+<ng-template #displaydiscount>
+    <h3>
+      We offer an explicit discount : {{ discount | percent }}
+    </h3>
+</ng-template>
+
+<ng-template  #nodiscount>
+    <h2>
+        no Discount
+    </h2>
+</ng-template>
 
 
-</div>
+
+<input type="text" [(ngModel)]="clientName">
+{{ clientName | uppercase }}
+
+    <button href="#" class="btn btn-info" (click)="toggle()">buy</button>
+  <!-- </div>
+
+</div> -->
+
+<div *ngIf="IsPurshased; then showTable;else hide"></div>
+<ng-template #showTable>
+<div *ngFor="let item in CategoryList"></div>
+        <table  class="table table-striped" >
+            <thead>
+            <tr>
+                <th class="col">ID</th>
+                <th class="col">Name</th>
+                <th class="col">Quantity</th>
+                <th class="col">Price</th>
+                <th class="col">Image</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th class="row">{{ProductList[0].ID}}</th>
+                <td>{{ProductList[0].Name}}</td>
+                <td>{{ProductList[0].Quantity}}</td>
+                <td>{{ProductList[0].price}}</td>
+                <td><img src="{{ProductList[0].img}}" height="130px"></td>
+
+            </tr>
+            <tr>
+                <th class="row">{{ProductList[1].ID}}</th>
+                <td>{{ProductList[1].Name}}</td>
+                <td>{{ProductList[1].Quantity}}</td>
+                <td>{{ProductList[1].price}}</td>
+                <td><img src="{{ProductList[1].img}}" height="130px"></td>
+            </tr>
+            <tr>
+              <th class="row">{{ProductList[2].ID}}</th>
+              <td>{{ProductList[2].Name}}</td>
+              <td>{{ProductList[2].Quantity}}</td>
+              <td>{{ProductList[2].price}}</td>
+              <td><img src="{{ProductList[1].img}}" height="130px"></td>
+          </tr>
+            </tbody>
+        </table>
+      </ng-template>
+        <ng-template #hide>
+          <div>Thanks for purchasing from our Store {{ clientName  }}</div>
+        </ng-template>
+
+
+
+
 
 
 

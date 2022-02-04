@@ -18,7 +18,11 @@ export class ProductsComponent implements OnInit {
   clientName:string
    IsPurshased:Boolean
 
+  //  CategoryList:string
 
+  toggle(): void {
+    this.IsPurshased = !this.IsPurshased;
+  }
 
 
 
@@ -59,6 +63,8 @@ export class ProductsComponent implements OnInit {
       img: 'assets/poco.jpg'
     }];
 
+
+    // this.CategoryList = {"Fashion":String,"Electornics":String,"Furniture":String}
     this.CategoryList = [{
       ID:1,
       Name:"Fashion"
@@ -66,8 +72,12 @@ export class ProductsComponent implements OnInit {
     {
       ID:2,
       Name:"Electornics"
+    },
+    {
+      ID:3,
+      Name:"Furniture"
     }]
-    this.clientName = 'Mostafa Mohammed'
+    this.clientName = 'put your name here'
     this.IsPurshased = true
    }
 

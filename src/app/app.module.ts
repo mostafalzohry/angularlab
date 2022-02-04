@@ -7,6 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import { ProductsComponent } from './products/products.component';
 
     FooterComponent,
      ProductsComponent,
-  
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
