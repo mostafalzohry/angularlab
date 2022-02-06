@@ -41,6 +41,9 @@
       We offer an explicit discount of: {{ discount }}</h3>
       <h3 #thenBlock></h3> -->
 
+
+      
+
 <div *ngIf="discount == 'No Discount' ; then nodiscount;else displaydiscount"></div>
 
 <ng-template #displaydiscount>

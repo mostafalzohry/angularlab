@@ -8,7 +8,7 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class AppComponent {
   title = 'firstday';
-  @ViewChild(ProductsComponent) child: ProductsComponent;
+  @ViewChild(ProductsComponent) child:ProductsComponent;
 
   showProducts() {
     this.child.renderValues();
@@ -17,4 +17,5 @@ export class AppComponent {
     this.child.toggle();
   }
 }
+
 

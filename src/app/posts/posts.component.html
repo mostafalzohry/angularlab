@@ -1,0 +1,31 @@
+<!-- <ng-container *ngFor="let post of postsList; let i = index">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.body}}</p>
+      <a href="#" class="card-link">View Post</a>
+    </div>
+  </div>
+</ng-container> -->
+
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>UserID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of postsList">
+        <td>{{ post.userId }}</td>
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -6,6 +6,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
+import { PostsComponent } from './posts/posts.component';
+import { UsersComponent } from './users/users.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,12 +16,15 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     FooterComponent,
      ProductsComponent,
+     PostsComponent,
+     UsersComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
