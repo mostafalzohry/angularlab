@@ -94,13 +94,13 @@ export class ProductsComponent implements OnInit {
     console.log("render values")
   }
 
-  goToWith() {
+  Withdiscount() {
     this.router.navigate(['ProductsWithDiscount'], {
       relativeTo: this.activatedRoute,
     });
   }
 
-  goToWithout() {
+  Withoutdiscount() {
     this.router.navigate(['ProductsWithoutDiscount'], {
       relativeTo: this.activatedRoute,
     });
