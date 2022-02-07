@@ -9,6 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsWithDiscountComponent } from './products-with-discount/products-with-discount.component';
+import { ProductsWithoutDiscountComponent } from './products-without-discount/products-without-discount.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,12 @@ import { HttpClientModule } from '@angular/common/http';
      ProductsComponent,
      PostsComponent,
      UsersComponent,
+     ProductsWithDiscountComponent,
+     ProductsWithoutDiscountComponent,
+     RegisterComponent,
+     LoginComponent,
+     HomeComponent,
+     PagenotfoundComponent,
 
   ],
   imports: [

@@ -3,6 +3,7 @@ import { DiscountOffers } from '../shared-classes-and-types/enum.discountoffers'
 import { ICategory } from '../shared-classes-and-types/interface.icategory';
 import { IProduct } from '../shared-classes-and-types/interface.iproduct'
 import { ProductService } from '../Services/product-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -21,7 +22,7 @@ export class ProductsComponent implements OnInit {
    showTable: boolean = false;
 
 
- 
+
 
   toggle(): void {
     this.IsPurshased = !this.IsPurshased;
@@ -29,7 +30,8 @@ export class ProductsComponent implements OnInit {
 
 
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,  private router: Router,
+    private activatedRoute: ActivatedRoute) {
     this.discount = DiscountOffers.tenpercentage
     this.storeName = 'poco'
     this.storeLogo = 'poco'
@@ -67,7 +69,7 @@ export class ProductsComponent implements OnInit {
     }];
 
 
-    
+
     this.CategoryList = [{
       ID:1,
       Name:"Fashion"
@@ -86,9 +88,21 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
     renderValues() {
     this.ProductList = this.productService.GetAllProducts();
     console.log("render values")
   }
 
+  goToWith() {
+    this.router.navigate(['ProductsWithDiscount'], {
+      relativeTo: this.activatedRoute,
+    });
+  }
+
+  goToWithout() {
+    this.router.navigate(['ProductsWithoutDiscount'], {
+      relativeTo: this.activatedRoute,
+    });
+  }
 }
