@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form class="container" [formGroup]="notesForm" name="notesForm" novalidate>
+        <div class="mb-3">
+
+          <label for="formGroupExampleInput" class="form-label">name</label>
+          <input type="text" class="form-control" formControlName="userName" pattern="^[A-Za-z]*$"
+            [class.is-invalid]="userName?.invalid && userName?.touched" requiredname="username"
+            id="formGroupExampleInput" placeholder="username">
+          <div *ngIf="userName?.invalid &&  userName?.touched">
+            <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small>
+            <small class="text-danger" *ngIf="userName?.errors?.['pattern']">you can't put numbers</small>
+            <small class="text-danger" *ngIf="userName?.errors?.['notallowedName']">you can't choose admin or
+              administrator</small>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select formControlName="products">
+            <option selected>
+              select option
+            </option>
+
+            <option *ngFor="let product of products">
+              {{product}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">discount</label>
+          <input type="number" [class.is-invalid]="discount?.invalid&& discount?.touched" formControlName="discount"
+            class="form-control">
+          <small [class.d-none]="discount?.valid ||discount?.untouched" *ngIf="discount?.errors?.['required']">discount
+            is Required</small>
+        </div>
+        <div class="form-check mb-3">
+          <input type="checkbox" (click)="Discount()" formControlName="subscribe" class="form-check-input">
+          <label class="form-check-label"> this product contain discount </label>
+        </div>
+        <button type="submit" class="btn btn-info">Register</button>
+      </form>
+    </div>
+  </div>
+</div>

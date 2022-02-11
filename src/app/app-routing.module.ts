@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { NotesComponent } from './notes/notes.component';
+
 
 const routes: Routes = [
    { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'home',component:HomeComponent},
+  {path:'notes',component:NotesComponent},
   {path:'**',component:PagenotfoundComponent},
+
 ];
 
 @NgModule({
