@@ -8,7 +8,7 @@ export class RegisterService {
 
   constructor(private http:HttpClient) { }
 
-  _url="http//:localhost:4200/register";
+  _url="http://localhost:3001/register";
 
   register(user:User){
     return this.http.post(this._url,user)
