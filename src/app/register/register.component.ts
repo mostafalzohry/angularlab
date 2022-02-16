@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
   usermodule:User=new User("","","","");
   repeatedPass:string;
   pass:string;
+  message:string= ""
+
   constructor(private register:RegisterService) {
     this.repeatedPass = '';
     this.pass = '';
@@ -49,6 +51,10 @@ export class RegisterComponent implements OnInit {
       console.log(error);
 
     })
+  }
+
+  aftersubmit(){
+    this.message = "registerion done"
   }
 
 }
